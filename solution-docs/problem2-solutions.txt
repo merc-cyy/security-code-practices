@@ -1,0 +1,11 @@
+Describe your solutions to executing the two goals in Exercise 2.
+
+Goal 1:
+_______
+# Solution goes here
+
+
+Goal 2:
+_______
+# Solution goes here
+
