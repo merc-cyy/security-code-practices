@@ -53,7 +53,7 @@ const create = async (db, bodyParams) => {
         const query = `INSERT INTO tasks(taskname, list_id, completed, priority, deadline) VALUES(\"${bodyParams.taskname}\", \"${bodyParams.list_id}\", 0, \"${bodyParams.priority}\", \"${bodyParams.deadline}\");`;
         db.query(query, (err, rows, fields) => {
             if (err) {
-                console.error("Error inserting task");
+                console.error(err);
                 return reject(err);
             }
             return resolve();

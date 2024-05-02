@@ -39,6 +39,21 @@ const searchInLists = async (db, listIds, searchQuery) => {
     return new Promise((resolve, reject) => {
         let query = `SELECT * FROM tasks WHERE list_id IN ${listIdsString} AND taskname LIKE \'%${searchQuery}%\';`;
         db.query(query, (err, rows, fields) => {
+            if (fields && fields[0].constructor == Array) {
+                let new_rows = [];
+                for (let i = 0; i < fields.length; i++) {
+                    if (fields[i] != undefined && rows[i][0] != undefined) {
+                        for (let j = 0; j < rows[i].length; j++) {
+                            new_rows.push(rows[i][j]);
+                        }
+                    }
+                }
+                rows = new_rows;
+            }
+            if (err) {
+                console.error(err);
+                return reject(err);
+            }
             return resolve(rows);
         });
     });
