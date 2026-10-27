@@ -1,0 +1,30 @@
+CREATE TABLE `lists` (
+  `list_id` int NOT NULL AUTO_INCREMENT,
+  `listname` longtext,
+  `user_id` int DEFAULT NULL,
+  PRIMARY KEY (`list_id`)
+);
+
+CREATE TABLE `tasks` (
+  `task_id` int NOT NULL AUTO_INCREMENT,
+  `taskname` longtext,
+  `list_id` int DEFAULT NULL,
+  `completed` tinyint DEFAULT NULL,
+  `priority` varchar(100) DEFAULT NULL,
+  `deadline` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`task_id`)
+);
+
+INSERT INTO lists(listname, user_id) VALUES('Setting government details', '100000');
+INSERT INTO lists(listname, user_id) VALUES('Passwords to set', '100000');
+INSERT INTO lists(listname, user_id) VALUES('Memories I need to remember', '199999');
+
+INSERT INTO tasks(taskname, list_id, completed, priority, deadline) VALUES('Change gmail to "stupidpwd123"', 2, 0, 'low', '11/1/23');
+INSERT INTO tasks(taskname, list_id, completed, priority, deadline) VALUES('Change gmail to "stupidpwd456"', 2, 1, 'high', 'October 1, 2023');
+INSERT INTO tasks(taskname, list_id, completed, priority, deadline) VALUES('Change bofa.com pwd to "stupidpwd456"', 2, 1, 'low', 'October 30, 2024');
+INSERT INTO tasks(taskname, list_id, completed, priority, deadline) VALUES('Update my SSN (459-00-8888) in the irs website', 1, 1, 'medium', 'January 2nd, 2023');
+INSERT INTO tasks(taskname, list_id, completed, priority, deadline) VALUES('New address 123 sheridan rd evanston in the irs website', 1, 1, 'medium', '12-04-23');
+INSERT INTO tasks(taskname, list_id, completed, priority, deadline) VALUES('Remember my home address is 123 sheridan rd evanston', 2, 0, 'high', '10-25-2023');
+INSERT INTO tasks(taskname, list_id, completed, priority, deadline) VALUES('My parents are Bob and Mallory Malice who live in Milwaukee', 3, 0, 'high', '10-25-2023');
+INSERT INTO tasks(taskname, list_id, completed, priority, deadline) VALUES('My phone number is 222-222-2222', 3, 0, 'high', '10-25-2023');
+INSERT INTO tasks(taskname, list_id, completed, priority, deadline) VALUES('My partner is Alice Evemathy', 3, 0, 'high', '10-24-2023');

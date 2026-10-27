@@ -1,0 +1,1 @@
+https://stackoverflow.com/questions/55659241/how-to-install-git-on-a-docker-ubuntu-image 

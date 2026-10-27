@@ -27,10 +27,20 @@ export default function Home() {
 
     // Search for tasks stored against the user ID in the database
     const searchTasks = async () => {
-        const matchingTasks = await fetch(`/api/search?user_id=${userID}&search_query=${searchTerm}`)
-            .then((res) => res.json());
+	    let matchingTasks = [];
+	    try {
+            matchingTasks = await fetch(`/api/search?user_id=${userID}&search_query=${searchTerm}`)
+                .then((res) => res.json())
+	    } catch (error) {
+            matchingTasks = [];
+            console.error(error);
+        }
 
-        // Place matchingTasks into the "tasks" variable (line 12)
+        if (matchingTasks.constructor != Array) {
+            matchingTasks = [];
+        }
+
+        // Place matchingTasks into the "tasks" variable (line 13)
         setTasks(matchingTasks);
         setRequestMade(true);
     };

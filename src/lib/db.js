@@ -15,5 +15,5 @@ export const getDatabase = () => {
 };
 
 export const closeDBInstance = (db) => {
-  db.destroy();
+  db.end();
 };

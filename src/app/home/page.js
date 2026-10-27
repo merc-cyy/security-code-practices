@@ -36,7 +36,7 @@ export default function Home() {
     const listsFromApi = await fetch(`/api/list?user_id=${userID}`)
       .then((res) => res.json());
 
-    // Place listsFromApi into the "lists" variable (line 18)
+    // Place listsFromApi into the "lists" variable (line 19)
     setLists(listsFromApi);
   };
 
@@ -64,7 +64,7 @@ export default function Home() {
       .then((res) => res.json());
 
     // Place "tasksFromApi" into the "tasks" map against the
-    // list ID (line 19)
+    // list ID (line 20)
     setTasks((previousTasks) => {
       return { ...previousTasks, [listId]: tasksFromApi };
     });
